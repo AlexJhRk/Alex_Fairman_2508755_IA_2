@@ -10,6 +10,8 @@ html {
 
 /* Main page style and the dark purple background */
 body {
+    display: flex;
+    flex-direction: column;
     margin: 0;
     min-height: 100vh;
     background: radial-gradient(ellipse at top, rgba(109, 40, 217, 0.22), transparent 55%), #100b20;
@@ -24,6 +26,12 @@ img {
     display: block;
     max-width: 100%;
 }
+#pattern-change{
+        background-image: url("assets/pattern-squiggly-line-bottom-desktop.svg");
+                background-repeat: no-repeat;
+                background-position: left;
+                background-size: 100% 100%;
+    }
 
 /* Keeps links the same color as the rest of their text */
 a {
@@ -46,6 +54,7 @@ input {
 
 /* Holds the logo and navigation links at the top */
 .site-header {
+ backdrop-filter: blur(2px);
     max-width: 1100px;
     margin: 0 auto;
     padding: 24px clamp(20px, 5vw, 64px);
@@ -69,13 +78,19 @@ input {
 .brand-icon {
     display: inline-grid;
     place-items: center;
-    width: 50px;
-    height: 50px;
+    width: 150px;
+    height: 150px;
     border-radius: 10px;
     color: blue;
     font-weight: bold;
 }
 
+.gradient-text{
+    background: linear-gradient(100deg,#c4b5fd, #f0abfc, #f9a8d4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
 /* Lines up the navigation links */
 nav {
     display: flex;
@@ -110,7 +125,6 @@ main {
 
 /* Keeps the main sections from getting too wide */
 .hero,
-.about-section,
 .closing-section,
 .site-footer {
     max-width: 1100px;
@@ -159,8 +173,7 @@ p {
 }
 
 /* Keeps the descriptions from stretching too far across the page */
-.hero-description,
-.section-description {
+.hero-description {
     max-width: 620px;
     margin: 0 auto 30px;
     color: #b9b1cc;
@@ -220,7 +233,7 @@ p {
 /* Small labels above the event details */
 .detail-label {
     display: block;
-    color: #b9b1cc;
+    color: pink;
     font-size: 0.7rem;
     font-weight: bold;
     letter-spacing: 0.13em;
@@ -251,46 +264,27 @@ p {
     margin-bottom: 42px;
 }
 
-/* Arranges the feature cards in three columns */
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    text-align: left;
+.bottom-left-image {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    width: 350px;
+    height: auto;
+
+    z-index: -100;
 }
 
-/* Gives each feature its own card with a slightly see-through background */
-.feature-card {
-    padding: 26px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 18px;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02));
-    transition: 0.2s;
-}
+.top-right-image {
+    position: fixed;
+    top: 0;
+    right: 0;
 
-/* Adds a little movement and a brighter border when hovering over a card */
-.feature-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(192, 132, 252, 0.6);
-}
+    width: 350px;
+    height: auto;
 
-/* Colors the feature numbers pink so they stand out */
-.feature-number {
-    color: #f0abfc;
-    font-weight: bold;
+    z-index: -100;
 }
-
-/* Adds space between the feature number and its heading */
-.feature-card h3 {
-    margin: 16px 0 8px;
-}
-
-/* Makes the card descriptions a little less bright */
-.feature-card p {
-    margin-bottom: 0;
-    color: #b9b1cc;
-}
-
 /* The final section encouraging visitors to register */
 .closing-section {
     padding-top: 60px;
@@ -354,7 +348,7 @@ p {
 }
 
 /* Styles the boxes where visitors enter their information */
-.form-group input {
+.form-group input, #photo {
     display: block;
     width: 100%;
     min-height: 49px;
@@ -381,6 +375,13 @@ p {
 /* Turns the input border red when the field has an error */
 .form-group input[aria-invalid="true"] {
     border-color: #fca5a5;
+}
+
+.upload-box {
+  border-radius: 16px;
+  padding: 35px 20px;
+  text-align: center;
+  transition: 0.3s ease;
 }
 
 /* Extra information shown underneath a form field */
@@ -439,20 +440,6 @@ p {
     text-align: center;
 }
 
-/* The green circle with the success symbol */
-.success-icon {
-    display: inline-grid;
-    place-items: center;
-    width: 48px;
-    height: 48px;
-    margin-bottom: 22px;
-    border: 1px solid rgba(134, 239, 172, 0.4);
-    border-radius: 50%;
-    background: rgba(134, 239, 172, 0.1);
-    color: #86efac;
-    font-size: 1.5rem;
-}
-
 /* Sets a more suitable heading size for the success page */
 .success-message h1 {
     font-size: clamp(2rem, 5vw, 3.6rem);
@@ -463,17 +450,21 @@ p {
     color: #b9b1cc;
 }
 
+#ticket-section{
+    background-image: url("assets/pattern-ticket.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+}
 /* The main ticket card with its glass-like background */
 .ticket-card {
     position: relative;
     overflow: hidden;
     padding: clamp(22px, 5vw, 40px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 24px;
-    background: radial-gradient(circle at top right, rgba(192, 132, 252, 0.25), transparent 45%), rgba(255, 255, 255, 0.075);
-    backdrop-filter: blur(18px);
+
+
+    backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(18px);
-    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
 }
 
 /* Lines up the top, bottom and attendee information inside the ticket */
@@ -499,7 +490,7 @@ p {
 
 /* Gives the event name and location room inside the ticket */
 .ticket-event {
-    padding: 45px 0 35px;
+    padding: 15px 0 65px;
 }
 
 /* Makes the event name stand out on the ticket */
@@ -514,16 +505,44 @@ p {
     color: #b9b1cc;
 }
 
-/* The dashed line that separates ticket sections */
-.ticket-divider {
-    height: 1px;
-    border-top: 1px dashed rgba(255, 255, 255, 0.3);
-}
-
 /* Holds the attendee photo, name and ticket number */
 .attendee-details {
     justify-content: flex-start;
     padding: 28px 0;
+}
+#avatar{
+    display:none !important;
+}
+
+
+.avatar-preview{
+    width:70px;
+    height:70px;
+    object-fit:cover;
+    border-radius:12px;
+    display:block;
+    margin:auto;
+}
+
+.avatar-actions{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:10px;
+}
+
+.avatar-actions button{
+    background:#4b466a;
+    color:white;
+    border:none;
+    border-radius:5px;
+    padding:6px 12px;
+    cursor:pointer;
+}
+
+.drag-over{
+    border:2px dashed hsl(7, 88%, 67%);
+    background:rgba(245,116,99,.1);
 }
 
 /* The attendee's profile picture on the ticket */
@@ -558,7 +577,13 @@ p {
 
 /* Keeps the ticket number aligned to the right */
 .ticket-number {
+    position: absolute;
+    right: 20px;
+    top: 42%;
+    transform: translateY(-50%);
+    align-items: right;
     flex-shrink: 0;
+    transform: rotate(90deg);
     text-align: right;
 }
 
@@ -569,19 +594,7 @@ p {
     font-weight: bold;
 }
 
-/* Holds the extra ticket information along the bottom */
-.ticket-bottom {
-    flex-wrap: wrap;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-}
 
-/* Styles the small details in the bottom section */
-.ticket-bottom p {
-    margin: 6px 0 0;
-    font-size: 0.9rem;
-    font-weight: bold;
-}
 
 /* Lines up the buttons underneath the ticket */
 .ticket-actions {
@@ -594,14 +607,14 @@ p {
 
 /* The footer with the final links and copyright text */
 .site-footer {
-    display: flex;
-    align-items: center;
+    margin-top: auto;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 16px;
     padding-top: 28px;
     padding-bottom: 28px;
     border-top: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(2px);
 }
 
 /* Keeps footer text small and muted */
@@ -699,8 +712,42 @@ input:focus-visible {
     font-size: clamp(15px, 1.5vw, 17px);
 }
 
+@media screen and (max-width: 620px) {
+    #ticket-section{
+        background-image: url("assets/pattern-ticket.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
+    }
+    #pattern-change{
+        background-image: url("assets/pattern-squiggly-line-bottom-mobile-tablet.svg");
+                background-repeat: no-repeat;
+                background-position: left;
+                background-size: 100% 100%;
+    }
+
+    .ticket-event {
+        padding: 25px 0 5px;
+    }
+    .ticket-card {
+       transform: scale(0.7);
+               transform-origin: top left;
+               width: 142.857%;
+    }
+}
 /* Extra changes for smaller mobile phones */
 @media (max-width: 480px) {
+
+    #ticket-section{
+            background-image: url("assets/pattern-ticket.svg");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 100% 100%;
+        }
+
+        .ticket-event {
+            padding: 25px 0 5px;
+        }
 
     /* Puts the logo above the navigation links */
     .site-header {

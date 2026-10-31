@@ -7,13 +7,13 @@
           content="Register for Coding Conf 2026.">
     <title>Register | Coding Conf</title>
     <link rel="stylesheet" href="style.css">
-    <script src="validation.js" defer></script>
+    <script src="js/validation.js" defer></script>
 </head>
 <body>
+<img style="z-index: -100; display:flex; position: fixed;" src="pattern-lines.svg">
 <header class="site-header">
     <a class="brand" href="index.html">
-        <img class="brand-icon" src="logo.png" alt="Coding Conf Logo">
-        Coding Conf
+        <img class="brand-icon" src="assets/logo-full.svg" alt="Coding Conf Logo">
     </a>
 
     <nav aria-label="Main navigation">
@@ -24,10 +24,9 @@
 <main class="form-page">
     <section class="form-intro">
         <p class="eyebrow">CODING CONF 2026</p>
-        <h1>Secure your <span class="gradient-text">spot.</span></h1>
+        <h2>Your Journey to Coding Conf 2026 Starts <span class="gradient-text">Here!</span></h2>
         <p>
-            Enter your information below to generate your
-            personalized conference ticket.
+            Secure your spot at next year's biggest coding conference.
         </p>
         <p class="form-event-details">
             October 26, 2026 <span aria-hidden="true">·</span>
@@ -39,6 +38,92 @@
           novalidate>
 
         <div class="form-group">
+            <div class="form-group">
+                <label for="avatar">Upload Your Avatar</label>
+
+                <span class="upload-box" id="photo">
+
+                    <!-- Initial Upload State -->
+                    <div id="upload-state">
+
+                        <img
+                                src="assets/icon-upload.svg"
+                                alt="Upload"
+                                style="display:block;margin:auto;">
+
+                        <h3>Upload your image</h3>
+
+                        <p>Drag and drop or click to upload</p>
+                    </div>
+
+                    <!-- Preview State -->
+                    <div id="preview-state" style="display:none;">
+
+                        <img
+                                id="avatar-preview"
+                                src=""
+                                alt="Avatar Preview"
+                                class="avatar-preview">
+
+                        <div class="avatar-actions">
+
+                            <button
+                                    type="button"
+                                    id="remove-image">
+                                Remove image
+                            </button>
+
+                            <button
+                                    type="button"
+                                    id="change-image">
+                                Change image
+                            </button>
+                        </div>
+                    </div>
+
+                    <input
+                            type="file"
+                            id="avatar"
+                            name="avatar"
+                            accept="image/jpeg,image/png"
+                            hidden>
+
+                </span>
+
+                <!-- ADD THIS PART -->
+
+                <small class="field-hint" id="avatar-hint">
+                    <span style="display:inline-flex;">
+                        <img
+                                src="assets/icon-info.svg"
+                                alt=""
+                                style="margin-right:5px;">
+
+                        JPEG or PNG only. Maximum file size: 500 KB.
+                    </span>
+                </small>
+
+                <small
+                        id="avatar-error"
+                        class="error-message"
+                        aria-live="polite"
+                        style="
+                        display:flex;
+                        align-items:center;
+                        gap:5px;">
+                    <img
+                            id="avatar-error-icon"
+                            src="assets/icon-info.svg"
+                            alt=""
+                            style="
+                                display:none;
+                                width:16px;
+                                height:16px;">
+
+                    <span id="avatar-error-text"></span>
+                </small>
+            </div>
+
             <label for="full-name">Full Name</label>
             <input
                     type="text"
@@ -48,6 +133,7 @@
                     autocomplete="name"
                     aria-describedby="name-error"
                     required>
+
             <small class="error-message" id="full-name-error"
                    aria-live="polite"></small>
         </div>
@@ -77,28 +163,10 @@
                     aria-describedby="github-error"
                     required>
             <small class="field-hint">
-                Include the @ symbol before your username.
+                <span style="display: inline-flex;"> <img style="margin-right:5px" src="assets/icon-info.svg"
+                                                          alt="Icon">Include the @ symbol before your username.</span>
             </small>
             <small class="error-message" id="github-error"
-                   aria-live="polite"></small>
-        </div>
-
-        <div class="form-group">
-            <label for="avatar">Upload Your Avatar</label>
-
-            <input
-                    type="file"
-                    id="avatar"
-                    name="avatar"
-                    accept="image/jpeg,image/png"
-                    aria-describedby="avatar-hint avatar-error"
-                    required>
-
-            <small class="field-hint" id="avatar-hint">
-                JPEG or PNG only. Maximum file size: 500 KB.
-            </small>
-
-            <small class="error-message" id="avatar-error"
                    aria-live="polite"></small>
         </div>
 
@@ -115,10 +183,11 @@
         </a>
     </form>
 </main>
-
+<img id="pattern-change" src="assets/pattern-lines.svg" class="bottom-left-image" alt=""></img>
+<img src="assets/pattern-squiggly-line-top.svg" class="top-right-image" alt="">
 <footer class="site-footer">
     <a class="brand" href="index.html">
-        <img class="brand-icon" src="logo.png" alt="Coding Conf Footer Logo">
+        <img src="assets/logo-mark.svg" alt="Coding Conf Footer Logo">
         Coding Conf
     </a>
     <p>October 26, 2026 · Papine, Kgn</p>

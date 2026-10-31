@@ -7,28 +7,198 @@ const nameInput = document.getElementById("full-name");
 const emailInput = document.getElementById("email");
 const githubInput = document.getElementById("github");
 const avatarInput = document.getElementById("avatar");
+const photoBox = document.getElementById("photo");
 
 const formNotice = document.getElementById("form-notice");
 
 const MAX_FILE_SIZE = 500 * 1024;
 const STORAGE_KEY = "codingConfRegistration";
 
+photoBox.addEventListener("click", function () {
+    avatarInput.click();
+});
+photoBox.addEventListener("dragover", function (event) {
+    event.preventDefault();
+
+    photoBox.style.borderColor = "hsl(7, 88%, 67%)";
+    photoBox.style.backgroundColor = "rgba(245, 116, 99, 0.1)";
+});
+
+photoBox.addEventListener("drop", function (event) {
+
+    event.preventDefault();
+
+    photoBox.style.borderColor = "";
+    photoBox.style.backgroundColor = "";
+
+    const files = event.dataTransfer.files;
+
+    if (!files.length) return;
+
+    const file = files[0];
+
+    const dataTransfer = new DataTransfer();
+
+    dataTransfer.items.add(file);
+
+    avatarInput.files = dataTransfer.files;
+
+    avatarInput.dispatchEvent(
+        new Event("change", { bubbles: true })
+    );
+});
+
+avatarInput.addEventListener("change", function () {
+
+    const file = this.files[0];
+
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function (event) {
+
+        document.getElementById("photo").innerHTML = `
+            <div class="uploaded-state">
+                <img
+                    src="${event.target.result}"
+                    class="avatar-preview"
+                    alt="Avatar Preview"
+                >
+
+                <div class="avatar-buttons">
+                    <button
+                        type="button"
+                        id="remove-image"
+                    >
+                        Remove image
+                    </button>
+
+                    <button
+                        type="button"
+                        id="change-image"
+                    >
+                        Change image
+                    </button>
+                </div>
+            </div>
+        `;
+
+        document
+            .getElementById("photo")
+            .appendChild(avatarInput);
+
+        addImageButtonEvents();
+    };
+
+    reader.readAsDataURL(file);
+});
+
+function addImageButtonEvents() {
+
+    document
+        .getElementById("change-image")
+        .addEventListener("click", function (event) {
+
+            event.stopPropagation();
+
+            avatarInput.click();
+        });
+
+    document
+        .getElementById("remove-image")
+        .addEventListener("click", function (event) {
+
+            event.stopPropagation();
+
+            avatarInput.value = "";
+
+            document.getElementById("photo").innerHTML = `
+                <img
+                    style="display:block;margin-left:auto;margin-right:auto;"
+                    src="assets/icon-upload.svg"
+                >
+
+                <h3>Upload your image</h3>
+
+                <p>Drag and drop or click to upload</p>
+            `;
+
+            document
+                .getElementById("photo")
+                .appendChild(avatarInput);
+        });
+}
+
+photoBox.addEventListener("dragleave", function () {
+
+    photoBox.style.borderColor = "";
+    photoBox.style.backgroundColor = "";
+});
+
 // Display an error beside a field.
 function showError(input, message) {
-    const errorElement = document.getElementById(input.id + "-error");
 
-    errorElement.textContent = message;
+    if (input.id === "avatar") {
+
+        const errorText =
+            document.getElementById("avatar-error-text");
+
+        const errorIcon =
+            document.getElementById("avatar-error-icon");
+
+        if (errorText) {
+            errorText.textContent = message;
+        }
+
+        if (errorIcon) {
+            errorIcon.style.display = "block";
+        }
+
+    } else {
+
+        const errorElement =
+            document.getElementById(input.id + "-error");
+
+        if (errorElement) {
+            errorElement.textContent = message;
+        }
+    }
+
     input.setAttribute("aria-invalid", "true");
 }
 
 // Clear an error when the field is corrected.
 function clearError(input) {
-    const errorElement = document.getElementById(input.id + "-error");
 
-    errorElement.textContent = "";
+    if (input.id === "avatar") {
+
+        const errorText =
+            document.getElementById("avatar-error-text");
+
+        const errorIcon =
+            document.getElementById("avatar-error-icon");
+
+        if (errorText) {
+            errorText.textContent = "";
+        }
+
+        if (errorIcon) {
+            errorIcon.style.display = "none";
+        }
+
+    } else {
+
+        const errorElement =
+            document.getElementById(input.id + "-error");
+
+        if (errorElement) {
+            errorElement.textContent = "";
+        }
+    }
+
     input.removeAttribute("aria-invalid");
 }
-
 // Check whether an email has a valid basic structure.
 function isValidEmail(email) {
     const emailPattern =

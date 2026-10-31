@@ -6,11 +6,11 @@
     <meta name="description"
           content="Your personalized Coding Conf ticket.">
     <title>Your Ticket | Coding Conf</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="ticket.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/ticket.js" defer></script>
     <style>
         body {
-        background-image: url("Neon Cyber Circuit Background.png");
+        background-image: url("assets/background-desktop.png");
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed;
@@ -18,45 +18,42 @@
     </style>
 </head>
 <body>
-<header class="site-header" id="ticket-header">
+
+<img style="z-index: -100; display:flex; position: fixed;" src="assets/pattern-lines.svg">
+<header class="site-header">
     <a class="brand" href="index.html">
-        <img class="brand-icon" src="logo.png" alt="Coding Conf Logo">
-        Coding Conf
+        <img class="brand-icon" src="assets/logo-full.svg" alt="Coding Conf Logo">
     </a>
 </header>
 
 <main class="ticket-page">
     <section class="success-message" aria-live="polite">
-        <span class="success-icon" aria-hidden="true">✓</span>
         <p class="eyebrow">REGISTRATION COMPLETE</p>
 
         <h1>
-            Congrats, <span id="congratulations-name">Attendee</span>!
+            Congrats, <span class="gradient-text" id="congratulations-name">Attendee</span>!
             <br>Your ticket is ready.
         </h1>
 
-        <p style="border-radius: 10px; background: radial-gradient(ellipse at top, rgba(109, 40, 217, 0.72), transparent 100%); background-color: rgba(16, 11, 32, .32)">
-            We are excited to have you join us at Coding Conf 2026.
-        </p>
 
     </section>
+    <div class="ticket-top">
+        <span style="text-align: center; margin-top: 40px;" class="ticket-badge">ADMISSION TICKET</span>
+    </div>
+    <section id="ticket-section" class="ticket-card" aria-label="Conference admission ticket">
 
-    <section class="ticket-card" aria-label="Conference admission ticket">
-        <div class="ticket-top">
-            <div class="brand ticket-brand">
-                <img class="brand-icon" src="logo.png" alt="Coding Conf Ticket Logo">
-                Coding Conf
-            </div>
-
-            <span class="ticket-badge">ADMISSION TICKET</span>
+        <div class="ticket-number">
+            <span class="detail-label">TICKET</span>
+            <p id="ticket-serial">#00000</p>
         </div>
 
         <div class="ticket-event">
-            <h2>Coding Conf 2026</h2>
-            <p>Ideas, innovation, and the future of technology.</p>
-        </div>
+            <span style="display: inline-flex"> <img style="margin: 6px;" class="" src="assets/logo-mark.svg" alt="Coding Conf Ticket Logo">
+                <h2>Coding Conf</h2>
+            </span>
+            <p>Oct 26, 2026 / Papine, Kgn</p>
 
-        <div class="ticket-divider"></div>
+        </div>
 
         <div class="attendee-details">
             <img
@@ -68,32 +65,20 @@
             <div class="attendee-info">
                 <span class="detail-label">ATTENDEE</span>
                 <h3 id="ticket-name">Your Name</h3>
-                <a id="ticket-github"
-                   href="https://github.com/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    @username
-                </a>
+                <span style="display: inline-flex;"> <img alt="GithubIcon" src="assets/icon-github.svg"> <a id="ticket-github"
+                       href="https://github.com/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        @username
+                    </a>
+                </span>
             </div>
 
-            <div class="ticket-number">
-                <span class="detail-label">TICKET</span>
-                <p id="ticket-serial">#00000</p>
-            </div>
+
         </div>
 
-        <div class="ticket-bottom">
-            <div>
-                <span class="detail-label">DATE</span>
-                <p>OCT 26, 2026</p>
-            </div>
-
-            <div>
-                <span class="detail-label">LOCATION</span>
-                <p>PAPINE, KGN</p>
-            </div>
-        </div>
     </section>
+
 
     <div class="ticket-actions">
         <a class="button button-primary" href="index.html">
@@ -102,9 +87,12 @@
     </div>
 </main>
 
-<footer class="site-footer" id="ticket-footer">
+<img id="pattern-change" src="assets/pattern-lines.svg" class="bottom-left-image" alt=""></img>
+<img src="assets/pattern-squiggly-line-top.svg" class="top-right-image" alt="">
+
+<footer class="site-footer">
     <a class="brand" href="index.html">
-        <img class="brand-icon" src="logo.png" alt="Coding Conf Footer Logo">
+        <img src="assets/logo-mark.svg" alt="Coding Conf Footer Logo">
         Coding Conf
     </a>
     <p>October 26, 2026 · Papine, Kgn</p>
