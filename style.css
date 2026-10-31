@@ -27,7 +27,7 @@ img {
     max-width: 100%;
 }
 #pattern-change{
-        background-image: url("assets/pattern-squiggly-line-bottom-desktop.svg");
+        background-image: url("pattern-squiggly-line-bottom-desktop.svg");
                 background-repeat: no-repeat;
                 background-position: left;
                 background-size: 100% 100%;
@@ -451,7 +451,7 @@ p {
 }
 
 #ticket-section{
-    background-image: url("assets/pattern-ticket.svg");
+    background-image: url("pattern-ticket.svg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%;
@@ -714,13 +714,13 @@ input:focus-visible {
 
 @media screen and (max-width: 620px) {
     #ticket-section{
-        background-image: url("assets/pattern-ticket.svg");
+        background-image: url("pattern-ticket.svg");
             background-repeat: no-repeat;
             background-position: center;
             background-size: 100% 100%;
     }
     #pattern-change{
-        background-image: url("assets/pattern-squiggly-line-bottom-mobile-tablet.svg");
+        background-image: url("Pattern-squiggly-line-bottom-mobile-tablet.svg");
                 background-repeat: no-repeat;
                 background-position: left;
                 background-size: 100% 100%;
@@ -739,7 +739,7 @@ input:focus-visible {
 @media (max-width: 480px) {
 
     #ticket-section{
-            background-image: url("assets/pattern-ticket.svg");
+            background-image: url("pattern-ticket.svg");
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: 100% 100%;
