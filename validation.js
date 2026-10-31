@@ -116,7 +116,7 @@ function addImageButtonEvents() {
             document.getElementById("photo").innerHTML = `
                 <img
                     style="display:block;margin-left:auto;margin-right:auto;"
-                    src="assets/icon-upload.svg"
+                    src="icon-upload.svg"
                 >
 
                 <h3>Upload your image</h3>
