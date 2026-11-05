@@ -5,97 +5,194 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
           content="Your personalized Coding Conf ticket.">
+
+    <!-- Page title, stylesheet, and ticket generation script -->
     <title>Your Ticket | Coding Conf</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="ticket.js" defer></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/ticket.js" defer></script>
+
+    <!-- Ticket page background styling -->
     <style>
         body {
-        background-image: url("background-desktop.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
+            background-image: url("../assets/background-desktop.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
         }
     </style>
 </head>
+
 <body>
 
-<img style="z-index: -100; display:flex; position: fixed;" src="pattern-lines.svg">
+<!-- Decorative background line pattern -->
+<img style="z-index: -100; display:flex; position: fixed;"
+     src="../assets/pattern-lines.svg">
+
+
+<!--  HEADER / NAVIGATION  -->
 <header class="site-header">
+
+    <!-- Website logo linking back to the home page -->
     <a class="brand" href="index.html">
-        <img class="brand-icon" src="logo-full.svg" alt="Coding Conf Logo">
+        <img class="brand-icon" src="../assets/logo-full.svg"
+             alt="Coding Conf Logo">
     </a>
+
 </header>
 
+
+<!--  MAIN TICKET CONTENT  -->
 <main class="ticket-page">
+
+    <!-- REGISTRATION SUCCESS MESSAGE  -->
+    <!-- Confirms successful registration and displays the attendee's name -->
     <section class="success-message" aria-live="polite">
+
         <p class="eyebrow">REGISTRATION COMPLETE</p>
 
         <h1>
-            Congrats, <span class="gradient-text" id="congratulations-name">Attendee</span>!
+            Congrats,
+            <span class="gradient-text" id="congratulations-name">Attendee</span>!
             <br>Your ticket is ready.
         </h1>
 
-
     </section>
-    <div class="ticket-top">
-        <span style="text-align: center; margin-top: 40px;" class="ticket-badge">ADMISSION TICKET</span>
-    </div>
-    <section id="ticket-section" class="ticket-card" aria-label="Conference admission ticket">
 
+
+    <!--  TICKET HEADING  -->
+    <!-- Label identifying the generated ticket -->
+    <div class="ticket-top">
+        <span style="text-align: center; margin-top: 40px;"
+              class="ticket-badge hover">
+            ADMISSION TICKET
+        </span>
+    </div>
+
+
+    <!-- CONFERENCE ADMISSION TICKET -->
+    <!-- Ticket container holding the attendee and conference information -->
+    <section id="ticket-section" class="ticket-card"
+             aria-label="Conference admission ticket">
+
+        <!--  TICKET SERIAL NUMBER -->
+        <!-- Displays the unique ticket identification number -->
         <div class="ticket-number">
+
             <span class="detail-label">TICKET</span>
+
             <p id="ticket-serial">#00000</p>
+
         </div>
 
+
+        <!-- CONFERENCE DETAILS -->
+        <!-- Displays the conference logo, name, date, and location -->
         <div class="ticket-event">
-            <span style="display: inline-flex"> <img style="margin: 6px;" class="" src="logo-mark.svg" alt="Coding Conf Ticket Logo">
+
+            <span style="display: inline-flex">
+
+                <img
+                        style="margin: 6px;"
+                        src="../assets/logo-mark.svg"
+                        alt="Coding Conf Ticket Logo">
+
                 <h2>Coding Conf</h2>
+
             </span>
+
             <p>Oct 26, 2026 / Papine, Kgn</p>
 
         </div>
 
+
+        <!-- ATTENDEE INFORMATION  -->
+        <!-- Displays the registered user's avatar and personal details -->
         <div class="attendee-details">
+
+            <!-- Attendee's uploaded profile image -->
             <img
                     id="ticket-avatar"
                     class="ticket-avatar"
                     src=""
                     alt="Your uploaded profile avatar">
 
+            <!-- Attendee name and GitHub profile information -->
             <div class="attendee-info">
+
                 <span class="detail-label">ATTENDEE</span>
+
+                <!-- Name populated using the registration information -->
                 <h3 id="ticket-name">Your Name</h3>
-                <span style="display: inline-flex;"> <img alt="GithubIcon" src="icon-github.svg"> <a id="ticket-github"
-                       href="https://github.com/"
-                       target="_blank"
-                       rel="noopener noreferrer">
+
+                <!-- GitHub icon and link to the attendee's profile -->
+                <span style="display: inline-flex;">
+
+                    <img
+                            alt="GithubIcon"
+                            src="../assets/icon-github.svg">
+
+                    <a
+                            id="ticket-github"
+                            href="https://github.com/"
+                            target="_blank"
+                            rel="noopener noreferrer">
                         @username
                     </a>
-                </span>
-            </div>
 
+                </span>
+
+            </div>
 
         </div>
 
     </section>
 
 
+    <!-- TICKET ACTIONS  -->
+    <!-- Navigation option allowing attendees to return to the home page -->
     <div class="ticket-actions">
+
         <a class="button button-primary" href="index.html">
             Back to Home
         </a>
+
     </div>
+
 </main>
 
-<img id="pattern-change" src="pattern-lines.svg" class="bottom-left-image" alt=""></img>
-<img src="pattern-squiggly-line-top.svg" class="top-right-image" alt="">
 
+<!-- DECORATIVE PAGE ELEMENTS  -->
+
+<!-- Bottom-left decorative pattern -->
+<img id="pattern-change" class="bottom-left-image" alt="">
+
+<!-- Top-right decorative squiggly pattern -->
+<img id="pattern-change-top"
+     src="../assets/pattern-squiggly-line-top.svg"
+     class="top-right-image" alt="">
+
+<!-- Decorative circular background element -->
+<img src="../assets/pattern-circle.svg"
+     class="circle-image" alt="">
+
+
+<!--  FOOTER  -->
 <footer class="site-footer">
+
+    <!-- Footer branding and home page link -->
     <a class="brand" href="index.html">
-        <img src="logo-mark.svg" alt="Coding Conf Footer Logo">
+
+        <img src="../assets/logo-mark.svg"
+             alt="Coding Conf Footer Logo">
+
         Coding Conf
+
     </a>
+
+    <!-- Conference date and location -->
     <p>October 26, 2026 · Papine, Kgn</p>
+
 </footer>
+
 </body>
 </html>

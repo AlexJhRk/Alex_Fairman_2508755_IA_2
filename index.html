@@ -5,75 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
           content="Join Coding Conf, a conference celebrating technology and coding.">
+
+    <!-- Page title and external stylesheet -->
     <title>Coding Conf | Home</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
+
+<!-- HEADER / NAVIGATION -->
 <header class="site-header">
+
+    <!-- Website logo linking back to the home page -->
     <a class="brand" href="index.html" aria-label="Coding Conf home">
-        <img class="brand-icon" src="logo-full.svg" alt="Coding Conf Logo">
+        <img class="brand-icon" src="../assets/logo-full.svg" alt="Coding Conf Logo">
     </a>
 
+    <!-- Main navigation links -->
     <nav aria-label="Main navigation">
         <a href="#event-details">Event Details</a>
-        <a class="nav-register" href="login.html">Register</a>
     </nav>
+
 </header>
 
+
+<!-- MAIN CONTENT  -->
 <main>
+
+    <!-- Hero section introducing the Coding Conf event -->
     <section class="hero">
+
+        <!-- Short introductory tagline -->
         <p class="eyebrow">YOUR FUTURE STARTS WITH CODE</p>
 
+        <!-- Main page heading with highlighted gradient text -->
         <h1>
             Where ideas<br>
             become <span class="gradient-text"> innovation </span>
         </h1>
 
+        <!-- Brief description explaining the purpose of the conference -->
         <p class="hero-description">
             Connect with technology enthusiasts, explore new ideas,
             and celebrate the future of computing at Coding Conf.
         </p>
 
+        <!-- Registration button directing visitors to the login page -->
         <a class="button button-primary" href="login.html">
-            Register Now →
+            Register Now
         </a>
 
+        <!-- Event information displayed in three separate detail blocks -->
         <div class="event-summary" id="event-details">
-            <div>
+
+            <!-- Conference date -->
+            <div class="hover">
                 <span class="detail-label">DATE</span>
                 <p>October 26, 2026</p>
             </div>
 
-            <div>
+            <!-- Conference location -->
+            <div class="hover">
                 <span class="detail-label">LOCATION</span>
                 <p>Papine, Kgn</p>
             </div>
 
-            <div>
+            <!-- Conference name -->
+            <div class="hover">
                 <span class="detail-label">EVENT</span>
                 <p>Coding Conf 2026</p>
             </div>
+
         </div>
     </section>
 
-    <section class="closing-section">
-        <p class="eyebrow">BE PART OF THE EXPERIENCE</p>
-        <h2>Ready to join us?</h2>
-        <p>Your place at Coding Conf starts here.</p>
-
-        <a class="button button-primary" href="login.html">
-            Get Your Ticket
-        </a>
-    </section>
 </main>
 
+
+<!-- FOOTER  -->
 <footer class="site-footer">
+
+    <!-- Footer branding and home page link -->
     <a class="brand" href="index.html">
-        <img src="logo-mark.svg" alt="Coding Conf Footer Logo">
+        <img src="../assets/logo-mark.svg" alt="Coding Conf Footer Logo">
         Coding Conf
     </a>
+
+    <!-- Basic event information repeated in the footer -->
     <p>October 26, 2026 · Papine, Kgn</p>
+
+    <!-- Copyright information -->
     <p class="copyright">© 2026 Coding Conf. All rights reserved.</p>
+
 </footer>
+
 </body>
 </html>

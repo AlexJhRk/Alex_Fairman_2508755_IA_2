@@ -5,82 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
           content="Register for Coding Conf 2026.">
+
+    <!-- Page title, stylesheet, and form validation script -->
     <title>Register | Coding Conf</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="validation.js" defer></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/validation.js" defer></script>
+
+    <!-- Registration page background styling -->
+    <style>
+        body {
+            background-image: url("../assets/background-desktop.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
 </head>
+
 <body>
-<img style="z-index: -100; display:flex; position: fixed;" src="pattern-lines.svg">
+
+<!-- Decorative background pattern -->
+<img style="z-index: -100; display:flex; position: fixed;"
+     src="../assets/pattern-lines.svg">
+
+<!-- HEADER / NAVIGATION  -->
 <header class="site-header">
+
+    <!-- Website logo linking to the home page -->
     <a class="brand" href="index.html">
-        <img class="brand-icon" src="logo-full.svg" alt="Coding Conf Logo">
+        <img class="brand-icon" src="../assets/logo-full.svg"
+             alt="Coding Conf Logo">
     </a>
 
+    <!-- Navigation link allowing visitors to return home -->
     <nav aria-label="Main navigation">
-        <a href="index.html">Home</a>
+        <a class="nav-register button" href="index.html">Home</a>
     </nav>
+
 </header>
 
+
+<!-- MAIN REGISTRATION CONTENT  -->
 <main class="form-page">
+
+    <!-- Introduction and event information -->
     <section class="form-intro">
+
+        <!-- Conference identification and registration heading -->
         <p class="eyebrow">CODING CONF 2026</p>
-        <h2>Your Journey to Coding Conf 2026 Starts <span class="gradient-text">Here!</span></h2>
+
+        <h2>
+            Your Journey to Coding Conf 2026 Starts
+            <span class="gradient-text">Here!</span>
+        </h2>
+
+        <!-- Brief explanation encouraging visitors to register -->
         <p>
             Secure your spot at next year's biggest coding conference.
         </p>
+
+        <!-- Conference date and location -->
         <p class="form-event-details">
             October 26, 2026 <span aria-hidden="true">·</span>
             Papine, Kgn
         </p>
+
     </section>
 
-    <form id="registration-form" class="registration-form"
-          novalidate>
 
+    <!--  REGISTRATION FORM  -->
+    <!-- novalidate allows the custom JavaScript validation to handle errors -->
+    <form id="registration-form" class="registration-form" novalidate>
+
+        <!-- User avatar upload and personal information -->
         <div class="form-group">
+
+            <!-- AVATAR UPLOAD -->
             <div class="form-group">
+
                 <label for="avatar">Upload Your Avatar</label>
 
+                <!-- Upload container with initial and preview states -->
                 <span class="upload-box" id="photo">
 
-                    <!-- Initial Upload State -->
+                    <!-- Initial state displayed before an image is selected -->
                     <div id="upload-state">
 
                         <img
-                                src="icon-upload.svg"
+                                src="../assets/icon-upload.svg"
                                 alt="Upload"
                                 style="display:block;margin:auto;">
 
                         <h3>Upload your image</h3>
 
                         <p>Drag and drop or click to upload</p>
+
                     </div>
 
-                    <!-- Preview State -->
+                    <!-- Preview state displayed after an image is selected -->
                     <div id="preview-state" style="display:none;">
 
+                        <!-- Selected avatar image preview -->
                         <img
                                 id="avatar-preview"
                                 src=""
                                 alt="Avatar Preview"
                                 class="avatar-preview">
 
+                        <!-- Controls for removing or replacing the selected image -->
                         <div class="avatar-actions">
 
-                            <button
-                                    type="button"
-                                    id="remove-image">
+                            <button type="button" id="remove-image">
                                 Remove image
                             </button>
 
-                            <button
-                                    type="button"
-                                    id="change-image">
+                            <button type="button" id="change-image">
                                 Change image
                             </button>
+
                         </div>
                     </div>
 
+                    <!-- Hidden file input used to select an avatar -->
                     <input
                             type="file"
                             id="avatar"
@@ -90,12 +136,11 @@
 
                 </span>
 
-                <!-- ADD THIS PART -->
-
+                <!-- Accepted image formats and maximum upload size -->
                 <small class="field-hint" id="avatar-hint">
                     <span style="display:inline-flex;">
                         <img
-                                src="icon-info.svg"
+                                src="../assets/icon-info.svg"
                                 alt=""
                                 style="margin-right:5px;">
 
@@ -103,6 +148,7 @@
                     </span>
                 </small>
 
+                <!-- Avatar validation error message and indicator -->
                 <small
                         id="avatar-error"
                         class="error-message"
@@ -111,20 +157,28 @@
                         display:flex;
                         align-items:center;
                         gap:5px;">
+
                     <img
                             id="avatar-error-icon"
-                            src="icon-info.svg"
+                            src="../assets/icon-info.svg"
                             alt=""
                             style="
-                                display:none;
-                                width:16px;
-                                height:16px;">
+                            display:none;
+                            width:16px;
+                            height:16px;">
 
                     <span id="avatar-error-text"></span>
+
                 </small>
+
             </div>
 
+
+            <!-- PERSONAL INFORMATION  -->
+
+            <!-- Full name input and validation message -->
             <label for="full-name">Full Name</label>
+
             <input
                     type="text"
                     id="full-name"
@@ -136,10 +190,16 @@
 
             <small class="error-message" id="full-name-error"
                    aria-live="polite"></small>
+
         </div>
 
+
+        <!--  EMAIL ADDRESS  -->
+        <!-- Email input and validation message -->
         <div class="form-group">
+
             <label for="email">Email Address</label>
+
             <input
                     type="email"
                     id="email"
@@ -148,12 +208,19 @@
                     autocomplete="email"
                     aria-describedby="email-error"
                     required>
+
             <small class="error-message" id="email-error"
                    aria-live="polite"></small>
+
         </div>
 
+
+        <!--  GITHUB USERNAME  -->
+        <!-- GitHub username input and formatting instructions -->
         <div class="form-group">
+
             <label for="github">GitHub Username</label>
+
             <input
                     type="text"
                     id="github"
@@ -162,35 +229,75 @@
                     autocomplete="username"
                     aria-describedby="github-error"
                     required>
+
+            <!-- Instruction reminding users to include the @ symbol -->
             <small class="field-hint">
-                <span style="display: inline-flex;"> <img style="margin-right:5px" src="icon-info.svg"
-                                                          alt="Icon">Include the @ symbol before your username.</span>
+                <span style="display: inline-flex;">
+                    <img
+                            style="margin-right:5px"
+                            src="../assets/icon-info.svg"
+                            alt="Icon">
+
+                    Include the @ symbol before your username.
+                </span>
             </small>
+
+            <!-- GitHub username validation error message -->
             <small class="error-message" id="github-error"
                    aria-live="polite"></small>
+
         </div>
 
+
+        <!-- General registration form status and validation feedback -->
         <p class="form-notice" id="form-notice"
            role="status" aria-live="polite"></p>
 
+
+        <!-- Submit button used to validate the information and generate a ticket -->
         <button class="button button-primary submit-button"
                 type="submit">
-            Generate My Ticket →
+            Generate My Ticket
         </button>
 
+        <!-- Secondary navigation link returning visitors to the home page -->
         <a class="button button-primary back-link" href="index.html">
-            ← Back to home
+            Back to home
         </a>
+
     </form>
+
 </main>
-<img id="pattern-change" src="pattern-lines.svg" class="bottom-left-image" alt=""></img>
-<img src="pattern-squiggly-line-top.svg" class="top-right-image" alt="">
+
+
+<!--  DECORATIVE PAGE ELEMENTS -->
+
+<!-- Bottom-left decorative line pattern -->
+<img id="pattern-change" src="../assets/pattern-lines.svg"
+     class="bottom-left-image" alt="">
+
+<!-- Top-right decorative squiggly pattern -->
+<img src="../assets/pattern-squiggly-line-top.svg"
+     class="top-right-image" alt="">
+
+<!-- Decorative circular background element -->
+<img src="../assets/pattern-circle.svg"
+     class="circle-image" alt="">
+
+
+<!-- FOOTER -->
 <footer class="site-footer">
+
+    <!-- Footer branding and home page link -->
     <a class="brand" href="index.html">
-        <img src="logo-mark.svg" alt="Coding Conf Footer Logo">
+        <img src="../assets/logo-mark.svg" alt="Coding Conf Footer Logo">
         Coding Conf
     </a>
+
+    <!-- Conference date and location -->
     <p>October 26, 2026 · Papine, Kgn</p>
+
 </footer>
+
 </body>
 </html>

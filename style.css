@@ -27,10 +27,7 @@ img {
     max-width: 100%;
 }
 #pattern-change{
-        background-image: url("pattern-squiggly-line-bottom-desktop.svg");
-                background-repeat: no-repeat;
-                background-position: left;
-                background-size: 100% 100%;
+        content: url("../assets/pattern-squiggly-line-bottom-desktop.svg");
     }
 
 /* Keeps links the same color as the rest of their text */
@@ -43,6 +40,14 @@ a {
 button,
 input {
     font: inherit;
+}
+
+/* Gives basic hover properties */
+.hover{
+    transition: 0.2s;
+}
+.hover:hover {
+    transform: translateY(-2px);
 }
 
 /* Removes the highlight that sometimes appears when tapping on a phone */
@@ -285,17 +290,18 @@ p {
 
     z-index: -100;
 }
-/* The final section encouraging visitors to register */
-.closing-section {
-    padding-top: 60px;
-    padding-bottom: 90px;
-    text-align: center;
+
+.circle-image {
+    position: fixed;
+
+    bottom: 35%;
+    right: 10%;
+
+    width: 170px;
+    height: 170px;
+
 }
 
-/* Gives the closing section paragraph a softer color */
-.closing-section > p:not(.eyebrow) {
-    color: #b9b1cc;
-}
 
 /* Keeps the registration page from getting too wide */
 .form-page {
@@ -451,7 +457,7 @@ p {
 }
 
 #ticket-section{
-    background-image: url("pattern-ticket.svg");
+    background-image: url("../assets/pattern-ticket.svg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%;
@@ -653,6 +659,27 @@ input:focus-visible {
 
 /* Adjusts the layout for tablets and smaller screens */
 @media (max-width: 700px) {
+    /* Makes the image smaller and moves it slightly */
+    .circle-image {
+        position: fixed;
+
+        bottom: 35%;
+        right: 10%;
+
+        width: 80px;
+        height: 80px;
+
+    }
+    .top-right-image {
+        position: fixed;
+        top: 0;
+        right: 0;
+
+        width: 250px;
+        height: auto;
+
+        z-index: -100;
+    }
 
     /* Moves the header items towards the top */
     .site-header {
@@ -714,16 +741,13 @@ input:focus-visible {
 
 @media screen and (max-width: 620px) {
     #ticket-section{
-        background-image: url("pattern-ticket.svg");
+        background-image: url("../assets/pattern-ticket.svg");
             background-repeat: no-repeat;
             background-position: center;
             background-size: 100% 100%;
     }
     #pattern-change{
-        background-image: url("Pattern-squiggly-line-bottom-mobile-tablet.svg");
-                background-repeat: no-repeat;
-                background-position: left;
-                background-size: 100% 100%;
+        content: url("../assets/pattern-squiggly-line-bottom-mobile-tablet.svg");
     }
 
     .ticket-event {
@@ -739,7 +763,7 @@ input:focus-visible {
 @media (max-width: 480px) {
 
     #ticket-section{
-            background-image: url("pattern-ticket.svg");
+            background-image: url("../assets/pattern-ticket.svg");
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: 100% 100%;
